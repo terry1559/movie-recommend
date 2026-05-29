@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 深色电影院主题 - 强制深色 */
+    --background: 240 10% 5%;
+    --foreground: 40 20% 92%;
+
+    --card: 240 8% 9%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 240 10% 8%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 43 74% 56%;
+    --primary-foreground: 240 10% 5%;
+
+    --secondary: 240 6% 15%;
+    --secondary-foreground: 40 15% 85%;
+
+    --muted: 240 5% 18%;
+    --muted-foreground: 40 8% 60%;
+
+    --accent: 43 50% 20%;
+    --accent-foreground: 43 74% 70%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 240 5% 18%;
+    --input: 240 5% 18%;
+    --ring: 43 74% 56%;
+
+    --radius: 0.625rem;
+
+    /* 金色系 - 电影质感 */
+    --gold: 43 74% 56%;
+    --gold-light: 43 80% 70%;
+    --gold-dark: 43 60% 35%;
+
+    /* 电影院深色系 */
+    --cinema: 240 10% 5%;
+    --cinema-deep: 240 15% 3%;
+    --cinema-surface: 240 8% 9%;
+    --cinema-hover: 240 6% 14%;
+
+    /* 阴影与光效 */
+    --shadow-gold: 0 0 30px hsl(43 74% 56% / 0.15);
+    --shadow-card: 0 4px 24px hsl(240 10% 3% / 0.6);
+    --gradient-gold: linear-gradient(135deg, hsl(43 74% 56%), hsl(30 70% 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(240 10% 5%), hsl(240 15% 3%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .poster-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .poster-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px hsl(43 74% 56% / 0.3);
+  }
+
+  .card-cinema {
+    @apply bg-card border-border/50 rounded-lg shadow-card transition-all duration-300;
+  }
+
+  .card-cinema:hover {
+    @apply border-gold/30 shadow-gold;
+    transform: translateY(-4px);
+  }
+
+  .section-title {
+    @apply font-serif text-2xl md:text-3xl font-bold text-foreground;
+  }
+
+  .gold-divider {
+    @apply h-px w-24;
+    background: var(--gradient-gold);
+  }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(240 10% 5%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(240 5% 25%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(43 50% 35%);
+}
