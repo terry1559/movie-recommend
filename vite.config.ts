@@ -4,6 +4,7 @@ import path from 'path'
 import { copyFileSync } from 'fs'
 
 export default defineConfig({
+  base: '/movie-recommend/',
   plugins: [
     react(),
     {

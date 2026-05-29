@@ -18,7 +18,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/movie-recommend">
       <ScrollToTop />
       <div className="flex min-h-screen flex-col bg-background">
         <Navbar />
